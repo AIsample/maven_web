@@ -1,13 +1,12 @@
-package com.example.maven_logic;
+package com.example.maven_web;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class TemplateLogicApplication {
+public class Application {
 
 	public static void main(String[] args) {
-		SpringApplication.run(TemplateLogicApplication.class, args);
+		SpringApplication.run(Application.class, args);
 	}
-
 }

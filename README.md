@@ -1,6 +1,6 @@
 # templateプロジェクトの使い方
 1. Webからリポジトリ新規作成。templateを指定
-1. pom.xmlのmaven_logicを変更（2か所）
+1. pom.xmlのmaven_webを変更（2か所）
 1. pom.xmlのmaven_commonを変更（2か所）
 1. settingsは引き継がれない
     1. Personal Access Token作成。read:packagesだけでOK
@@ -30,3 +30,6 @@
 1. リポジトリのsettings -> secrets and variables -> Secrets追加
     1. APP_ID=378486　※workflowの記述と合わせる
     1. PRIVATE_KEY=pemの中身　※workflowの記述と合わせる
+
+# APIエンドポイント
+- `GET /api/hello`: "Hello, World!"を返す
