@@ -1,31 +1,65 @@
 package com.example.maven_web.controller;
 
-import com.example.maven_logic.Logic; // 追加
+import com.example.maven_logic.Product;
+import com.example.maven_logic.ProductService; // 追加
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
+/**
+ * ApiControllerクラスは、商品購入アプリのAPIエンドポイントを提供します。
+ */
 @RestController
 @RequestMapping("/api")
 public class ApiController {
 
     @Autowired
-    private Logic logic; // 修正
+    private ProductService productService; // 修正
 
+    /**
+     * "Hello, World!"を返すエンドポイント。
+     * 
+     * @return "Hello, World!"というメッセージ
+     */
     @GetMapping("/hello")
     public String sayHello() {
         return "Hello, World!";
     }
     
-    @GetMapping("/api/hello")
-    public String hello() {
-        // 既存の処理
-        String message = "Hello, World!";
-        
-        // maven_logicの処理を追加
-        String logicResult = logic.processData("sample input"); // 修正
-        
-        return message + " " + logicResult;
+    /**
+     * 商品リストを取得するエンドポイント。
+     * 
+     * @return 商品名のリスト
+     */
+    @GetMapping("/products")
+    public List<Product> getProducts() {
+        // 商品リストを取得するロジックを追加
+        return productService.getProductList();
+    }
+
+    /**
+     * 指定されたIDの商品詳細を取得するエンドポイント。
+     * 
+     * @param id 商品ID
+     * @return 商品の詳細情報
+     */
+    @GetMapping("/products/{id}")
+    public Product getProductDetails(@PathVariable int id) {
+        // 商品詳細を取得するロジックを追加
+        return productService.getProductDetails(id);
+    }
+
+    /**
+     * 商品を購入するエンドポイント。
+     * 
+     * @param productId 購入する商品のID
+     * @param quantity 購入する数量
+     * @return 購入結果のメッセージ
+     */
+    @PostMapping("/purchase")
+    public String purchaseProduct(@RequestParam int productId, @RequestParam int quantity) {
+        // 商品購入のロジックを追加
+        return productService.purchaseProduct(productId, quantity);
     }
 }

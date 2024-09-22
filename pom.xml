@@ -91,6 +91,9 @@
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
+				<configuration>
+					<mainClass>com.example.maven_web.Application</mainClass> <!-- 追加 -->
+				</configuration>
 			</plugin>
 		</plugins>
 	</build>
