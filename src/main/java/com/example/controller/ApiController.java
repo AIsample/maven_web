@@ -1,9 +1,10 @@
-package com.example.maven_web.controller;
+package com.example.controller;
 
-import com.example.maven_logic.Product;
-import com.example.maven_logic.ProductService; // 追加
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+
+import com.example.entity.Product;
+import com.example.service.ProductService;
 
 import java.util.List;
 
@@ -24,6 +25,7 @@ public class ApiController {
      */
     @GetMapping("/hello")
     public String sayHello() {
+        System.out.println("sayHelloメソッドに到達しました");
         return "Hello, World!";
     }
     
